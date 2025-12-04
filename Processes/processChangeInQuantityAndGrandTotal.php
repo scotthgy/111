@@ -2,6 +2,17 @@
 include_once '../Processes/OrderItem.php';
 session_start();
 
+// Initialize session variables if not set
+if(!isset($_SESSION['NUMBER_OF_ITEMS_BOUGHT'])){
+  $_SESSION['NUMBER_OF_ITEMS_BOUGHT'] = 0;
+}
+if(!isset($_SESSION['GRAND_TOTAL'])){
+  $_SESSION['GRAND_TOTAL'] = 0;
+}
+if(!isset($_SESSION['ARRAY_ORDERS'])){
+  $_SESSION['ARRAY_ORDERS'] = [];
+}
+
 $_SESSION['NUMBER_OF_ITEMS_BOUGHT']+=$_REQUEST["diff"];
 $_SESSION['GRAND_TOTAL']+=($_REQUEST["unitPrice"]*$_REQUEST["diff"]);
 
