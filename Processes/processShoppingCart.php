@@ -35,7 +35,7 @@ foreach($_SESSION['ARRAY_ORDERS'] as $orderItem)
     //if the item has been bought, add the quantity only.
     $orderItem->quantityOrdered+=$_SESSION['QUANTITY_ORDERED'];
     $orderItem->totalAmount = $orderItem->unitPrice * $orderItem->quantityOrdered;
-    $_SESSION['GRAND_TOTAL'] += $_SESSION['UNIT_PRICE'] * $_SESSION['QUANTITY_ORDERED'];
+    $_SESSION['GRAND_TOTAL'] += $orderItem->unitPrice * $_SESSION['QUANTITY_ORDERED'];
     $_SESSION['NUMBER_OF_ITEMS_BOUGHT'] += $_SESSION['QUANTITY_ORDERED'];
     $isItemAlreadyAddedToOrder = true;
   }
